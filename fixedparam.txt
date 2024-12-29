@@ -1,4 +1,3 @@
-# Fixed parameters in paper
 #-----------------
 # upgrade & import
 #----------------
@@ -17,8 +16,6 @@ bVisualize = True # visualize image sample in a table
 bSaveImg = True # save all images
 
 bMisclassify = True # evaluate misclassified and correct-classified images
-
-bGradCam = True # carried out XAI (gradcam++, smoothgrad)
 
 bPhysicalProp = True # evaluate physical properties (stellar mass, SFR)
 
