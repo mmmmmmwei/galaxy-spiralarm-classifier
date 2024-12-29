@@ -10,6 +10,7 @@ GZ2 image dataset: https://www.kaggle.com/datasets/jaimetrickz/galaxy-zoo-2-imag
 GZ2 catalog: https://zooniverse-data.s3.amazonaws.com/galaxy-zoo-2/zoo2MainSpecz.csv.gz
 
 Stellar mass data: casjob DR8 https://skyserver.sdss.org/CasJobs/SubmitJob.aspx
+(stellar mass_SFR.7z)
 ```
 SELECT
     g.specObjID, g.LGM_TOT_P50, g.sfr_tot_p50
@@ -24,8 +25,6 @@ WHERE
     and g.LGM_TOT_P50!=-9999
     and g.sfr_tot_p50!=-9999
 ```
-
-
 # How to use
 ## Fixed parameters in paper
 Refer fixedparam.txt
