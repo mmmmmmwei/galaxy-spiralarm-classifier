@@ -159,7 +159,8 @@ class_map = [0,1,2,3,3,4] # class combination
 
 NUM_CLASS = 2 # number of class after select/combine
 ```
-### XAI (gradcam++, smoothgrad) (Different training method)
+### XAI (gradcam++, smoothgrad)
+(Different training method. Hence, different model is required)
 ```
 #-----------------
 # optional features
