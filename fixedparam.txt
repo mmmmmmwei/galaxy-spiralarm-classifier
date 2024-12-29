@@ -1,0 +1,159 @@
+# Fixed parameters in paper
+#-----------------
+# upgrade & import
+#----------------
+bUpgradeTSF = True
+
+bImportZoobot = True
+
+bImportDataset = True
+
+
+#-----------------
+# optional features
+#-----------------
+bVisualize = True # visualize image sample in a table
+
+bSaveImg = True # save all images
+
+bMisclassify = True # evaluate misclassified and correct-classified images
+
+bGradCam = True # carried out XAI (gradcam++, smoothgrad)
+
+bPhysicalProp = True # evaluate physical properties (stellar mass, SFR)
+
+
+#-----------------
+# dataset related (change this if want to use other dataset)
+#-----------------
+x_label=['1','2','3','4','5+','?']
+
+file_format = 'jpeg'
+
+csv_dir = '/kaggle/working/zoo2MainSpecz.csv'
+csv_map = '/kaggle/working/gz2_filename_mapping.csv'
+img_title = 'asset_id'
+img_folder = '/kaggle/working/galaxy-zoo-2-images/images_gz2/images/'
+
+
+#----------------------------
+# dataset selection criteria (change this to use other selection criteria)
+#----------------------------
+bUseFilter = True
+
+csv_data_filter=[
+                't01_smooth_or_features_a02_features_or_disk',
+                't02_edgeon_a05_no',
+                't04_spiral_a08_spiral',
+            ]
+
+prob_filter=[
+                0.43,
+                0.715,
+                0.619,
+            ]
+
+flag_filter=[
+                0,
+                0,
+                0,
+                #0,
+            ]
+
+csv_data_class=[
+    't11_arms_number_a31_1',
+    't11_arms_number_a32_2',
+    't11_arms_number_a33_3',
+    't11_arms_number_a34_4',
+    't11_arms_number_a36_more_than_4',
+    't11_arms_number_a37_cant_tell',   
+]
+
+flag_class=[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+        ]
+
+debiased_class=[
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+        ]    
+
+max_no_class=[
+                300,
+                300,
+                300,
+                300,
+                300,
+                300,
+]
+
+val_num=[
+                50,
+                90,
+                90,
+                9,
+                10,
+                90,
+]
+
+
+#-----------------
+# data alternate
+#-----------------
+initial_size = 424 # original image size
+
+test_split = 0.3 # val-train ratio
+
+bWeightage = False # assign weightage to class (reduce overfitting)
+
+
+#-------------------
+# data augmentation
+#-------------------
+crop_size = 224 # final size after cropping
+resize_size = 224  # Zoobot, as pretrained, expects 224x224 images
+dRotationFactor = 0.5 # rotation factor
+dZoomFactor = 0.2 # zoom factor
+
+input_size = 224 # model input size
+
+
+#-----------------
+# training
+#-----------------
+SEED = 42 # random seed
+
+epochs = 50  #  ~15s per epoch. Finetuning properly for ~150 epochs takes about ~20 mins, so let's just do 15 and see if we're getting anywhere
+
+if (bZoobot == True):
+    bGrayscale = True
+    bNormalize = True
+    cb_monitor = 'val_accuracy'
+    cb_mode = 'max'
+    es_patience = 30
+    dLearningRate = 0.0001
+    batch_size = 16
+    channels = 1
+else:
+    bGrayscale = False
+    bNormalize = False
+    cb_mTrueonitor = 'val_accuracy'
+    cb_mode = 'max'
+    es_patience = 30
+    dLearningRate = 0.0001
+    batch_size = 16
+    channels = 3
+    
+always_augment=False
+expect_partial=False
+use_imagenet_weights=False
+include_top=False
