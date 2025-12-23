@@ -11,6 +11,7 @@ GZ2 catalog: https://zooniverse-data.s3.amazonaws.com/galaxy-zoo-2/zoo2MainSpecz
 
 Stellar mass data: casjob DR8 https://skyserver.sdss.org/CasJobs/SubmitJob.aspx
 (stellar mass_SFR.7z)
+*Refer https://skyserver.sdss.org/dr7/en/tools/
 ```
 SELECT
     g.specObjID, g.LGM_TOT_P50, g.sfr_tot_p50
